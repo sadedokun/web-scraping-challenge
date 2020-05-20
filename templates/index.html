@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Mission to Mars</title>
+  </head>
+  <body>
+    <h1>Mission to Mars</h1>
+    <p><a class="btn btn-secondary btn-lg" href="./scrape" role="button">Scrape that Data Up</a></p>
+  </section>
+
+  <section id="upper" class="">
+      <div class="row">
+          <div class="col-md-8">
+              <div class="row">
+                  <div class="col-md-12">
+                      <h2>Latest Mars News</h2>
+                      <hr>
+                      <h3>{{ mars.News_Title }}</h3>
+                      <p>{{ mars.News_P }}</p>
+                  </div>
+                  <div class="col-md-12">
+                      <h2>Featured Mars Image</h2>
+                      <img class="img-fluid" src="{{ mars.Most_Recent_Mars_Image }}">
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="media border border-dark">
+                          <div class="media-body my-3 mx-1">
+                              <h4>Current Weather on Mars</h4>
+                              <p>{{ mars.Mars_Weather }}
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-12 mt-5">
+                      <h4>Mars Facts</h4>
+                      <hr>
+                      {{ mars.Mars_Facts | safe }}
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section id="lower" class="">
+      <div class="row mt-5">
+          <div class="col-md-12 text-center">
+              <h2>Mars Hemispheres</h2><hr>
+          </div>
+
+      {% for hemi in mars.Hemisphere_image_urls %}
+      <div class="col-md-6">
+          <figure class="figure">
+              <img class="figure-img img-fluid my-1" src="{{ hemi.img_url }}">
+              <figcaption class="figure-caption"><h4>{{ hemi.title }}</h4></figcaption>
+          </figure>
+      </div>
+      {% endfor %}
+  </section>
+
+</div>
+
+<div id="footer">
+  <p>Created by <a href="https://www.alexbuitron.com">alex's brain</a></p>
+</div>
+
+</body>
+</html>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
